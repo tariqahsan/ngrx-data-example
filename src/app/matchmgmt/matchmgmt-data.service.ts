@@ -10,22 +10,22 @@ import { map } from 'rxjs/operators';
 })
 export class MatchmgmtDataService extends DefaultDataService<DoeMetadata> {
   constructor(http: HttpClient, httpUrlGenerator: HttpUrlGenerator) {
-    super('Product', http, httpUrlGenerator);
+    super('DoeMetadata', http, httpUrlGenerator);
   }
 
-  getAll(): Observable<DoeMetadata[]> {
+//   getAll(): Observable<DoeMetadata[]> {
 
-      return this.http.get('http://localhost:8686/api/v1/doeMetadata/').pipe(
-      map((data) => {
-        if (!data) {
-          return [];
-        }
-        return (data as DoeMetadata[]).map((d) => {
-          // return { ...d, price: 0 };
-          return { ...d};
-        });
-      })
-    );
-  }
+//       return this.http.get('http://localhost:8686/api/v1/doeMetadata/').pipe(
+//       map((data) => {
+//         if (!data) {
+//           return [];
+//         }
+//         return (data as DoeMetadata[]).map((d) => {
+//           // return { ...d, price: 0 };
+//           return { ...d};
+//         });
+//       })
+//     );
+//   }
 }
 

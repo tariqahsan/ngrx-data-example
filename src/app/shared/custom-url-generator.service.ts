@@ -14,6 +14,7 @@ export class CustomUrlGeneratorService extends DefaultHttpUrlGenerator {
     let resourceUrl = this.knownHttpResourceUrls[entityName];
 
     if(entityName == 'PinRequest') {
+      console.log("I AM IN PinRequest entityName ...")
       const url = "http://localhost:8686/api/v1/pinRequests/";
       resourceUrl = {
         entityResourceUrl : url,
@@ -23,6 +24,14 @@ export class CustomUrlGeneratorService extends DefaultHttpUrlGenerator {
     }
     if (entityName == 'DoeMetadata') {
       const url = "http://localhost:8686/api/v1/doeMetadata/";
+      resourceUrl = {
+        entityResourceUrl : url,
+        collectionResourceUrl : url
+      }
+      this.registerHttpResourceUrls({[entityName]:resourceUrl});
+    }
+    if (entityName == 'Product') {
+      const url = "http://localhost:8686/api/v1/products/";
       resourceUrl = {
         entityResourceUrl : url,
         collectionResourceUrl : url

@@ -1,5 +1,5 @@
 export interface PinRequest {
-    $key: string;
+    id: string;
     parentOrgName: string;
     parentCageCode: string;
     divisionName: string;
