@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { MaterialModule } from './material/material.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -13,6 +15,11 @@ import { environment } from 'src/environments/environment';
 import { EntityDataModule, HttpUrlGenerator } from '@ngrx/data';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomUrlGeneratorService } from './shared/custom-url-generator.service';
+import { DepartmentService } from './shared/department.service';
+import { UserService } from './shared/user.service';
+
+import { MatIconModule } from '@angular/material/icon';
+import { UserListComponent } from './users/user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +29,9 @@ import { CustomUrlGeneratorService } from './shared/custom-url-generator.service
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     MaterialModule,
+    MatIconModule,
     HttpClientModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
@@ -38,8 +47,10 @@ import { CustomUrlGeneratorService } from './shared/custom-url-generator.service
     {
       provide: HttpUrlGenerator,
       useClass: CustomUrlGeneratorService
-    }
+    }, 
+    DepartmentService, UserService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [UserListComponent]
 })
 export class AppModule { }

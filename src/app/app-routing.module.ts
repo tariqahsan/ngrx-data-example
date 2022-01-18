@@ -16,6 +16,10 @@ const routes: Routes = [
   {
     path: 'pin-request',
     loadChildren: () => import('./pin-requests/pin-requests.module').then(_ => _.PinRequestsModule)
+  },
+  {
+    path: 'users',
+    loadChildren: () => import('./users/users.module').then(_ => _.UserModule)
   }
  
 ];

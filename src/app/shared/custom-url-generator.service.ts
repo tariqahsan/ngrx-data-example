@@ -38,6 +38,15 @@ export class CustomUrlGeneratorService extends DefaultHttpUrlGenerator {
       }
       this.registerHttpResourceUrls({[entityName]:resourceUrl});
     }
+    if (entityName == 'User') {
+      const url = "http://localhost:8686/api/v1/users/";
+      resourceUrl = {
+        entityResourceUrl : url,
+        collectionResourceUrl : url
+      }
+      this.registerHttpResourceUrls({[entityName]:resourceUrl});
+    }
+
     return resourceUrl;
   }
 }
